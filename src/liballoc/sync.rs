@@ -1038,7 +1038,7 @@ impl<T> Weak<T> {
 }
 
 // Specialization because `NonNull::<T>::dangling()` only exits for `T: Sized`
-trait Dangling {
+pub(crate) trait Dangling {
     fn dangling_ptr() -> NonNull<Self>;
     fn is_dangling(ptr: NonNull<Self>) -> bool;
 }
